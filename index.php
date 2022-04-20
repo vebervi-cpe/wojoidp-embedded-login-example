@@ -118,7 +118,20 @@
             <img class="social-logo" src="images/social/instagram.png" alt="">
             <span class="social-verb">Follow on</span>
             <span class="social-name">Instagram</span></a></li>
-	  <li><span>Testouillage de l'extrême</span></li>
+	  <li>
+		  <div>Custom Register</div>
+		  <form onsubmit="handleRegister(this);">
+			  <label>Firstname</label>
+			  <input type="text" name="firstnameRegister"/>
+			  <label>Lastname</label>
+			  <input type="text" name="lastnameRegister"/>
+			  <label>Email</label>
+			  <input type="text" name="emailRegister"/>
+			  <label>Password</label>
+			  <input type="text" name="passwordRegister"/>
+			  <input type="submit" value"Register"/>
+		  </form>
+	  </li>
         </ul>
       </div>
 
@@ -127,6 +140,20 @@
 
 	
 	<script>
+		
+	function handleRegister(form) {
+		console.log("handleRegister");
+		
+		var firstname = form.firstnameRegister.value;
+		var lastname = form.lastnameRegister.value;
+		var email = form.emailRegister.value;
+		var password = form.passwordRegister.value;
+		
+		console.log(firstname);
+		console.log(lastname);
+		console.log(email);
+		console.log(password);
+	}
 
 
 	function onLogin(identity) {

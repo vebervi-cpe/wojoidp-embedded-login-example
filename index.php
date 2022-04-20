@@ -169,8 +169,6 @@
 			    password: password
 		    }
 		}));
-		
-		SFIDWidget.authenticate();
 	}
 
 

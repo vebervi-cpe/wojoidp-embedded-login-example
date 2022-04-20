@@ -120,7 +120,7 @@
             <span class="social-name">Instagram</span></a></li>
 	  <li>
 		  <div>Custom Register</div>
-		  <form onsubmit="handleRegister(this);">
+		  <form onsubmit="handleRegister(this); return false;">
 			  <label>Firstname</label>
 			  <input type="text" name="firstnameRegister"/>
 			  <label>Lastname</label>
@@ -144,6 +144,9 @@
 	function handleRegister(form) {
 		console.log("handleRegister");
 		
+		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";
+		const token = "00D09000007HeQ1!AQMAQFXtLaS.pCMc8G87vAiJ68ux4MFDafFnW8batu6mfHuTxFQ.63ewVCAe9ozgIS4SG1xtXBIlNe7Hm0Q8SbGin7yniqCa";
+		
 		var firstname = form.firstnameRegister.value;
 		var lastname = form.lastnameRegister.value;
 		var email = form.emailRegister.value;
@@ -153,6 +156,21 @@
 		console.log(lastname);
 		console.log(email);
 		console.log(password);
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", endpoint, true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+		xhr.send(JSON.stringify({
+		    request: {
+			    lastname: lastname,
+			    firstname: firstname,
+			    email: email,
+			    password: password
+		    }
+		}));
+		
+		SFIDWidget.authenticate();
 	}
 
 

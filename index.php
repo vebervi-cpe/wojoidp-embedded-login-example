@@ -16,7 +16,7 @@
 		    position: fixed;
 		    width: 100%;
 		    height: 100%;
-		    background: rgba(200, 200, 200, 0.8);
+		    background: rgba(240, 240, 250, 0.8);
 		    z-index: 1000;
 	    }
     </style>
@@ -39,7 +39,7 @@
   
   <body>
     <div id="overlayLoading" class="displayNone">
-	    <h1>Loading</h1>
+	    <h1 style="font-weight: bold;">Loading</h1>
     </div>
     <div id="customRegister" style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center; padding: 20px;">
 	  <span style="font-weight: bold";>Custom Register</span>
@@ -174,7 +174,8 @@
 		
 		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";
 		const token = "00D09000007HeQ1!AQMAQC0731ZoAAxDTCXPjyUFPI1Zy5z67ixBp3EsMiW7fGHtqazgq1Qz86Aiw3Uuf6Kfp3cypmNhoLtWAqphH_Pp_hQBQsTE";
-		const truc = <?php echo getenv('SALESFORCE_COMMUNITY_URL');?>
+		const truc = "<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>";
+		const muche = \"<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>\"
 		
 		var firstname = form.firstnameRegister.value;
 		var lastname = form.lastnameRegister.value;

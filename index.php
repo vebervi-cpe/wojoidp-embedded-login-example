@@ -64,6 +64,7 @@
 		  <br><br>
 		  <input type="submit" value"Register"/>
 		  <br><br>
+		  <span id="registrationError" style="color: red; font-weight: bold;"></span>
 	  </form>
     </div>
     <div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
@@ -172,6 +173,9 @@
 		var overlayLoading = document.getElementById("overlayLoading");
 		overlayLoading.className = "overlayLoading";
 		
+		var registrationError = document.getElementById("overlayLoading");
+		registrationError.textContent = "";
+		
 		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";
 		const token = "<?php echo getenv('SALESFORCE_AUTH_TOKEN');?>";
 		
@@ -211,9 +215,11 @@
 			    overlayLoading.className = "displayNone";
 				
 			    console.error('An error happened.');
-			    console.error(xhr);
-		            console.error(xhr.response);
-                            console.error(xhr.responseText);
+			    console.log(xhr.status);
+			    console.log(xhr);
+		            console.log(xhr.response);
+                            console.log(xhr.responseText);
+			    registrationError.textContent = xhr.responseText;
 			}
 	            }
 	        }

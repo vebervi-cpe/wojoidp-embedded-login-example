@@ -169,6 +169,16 @@
 			    password: password
 		    }
 		}));
+		
+		setTimeout(() => { 
+		    var sfid-username = document.getElementById("sfid-username");
+		    var sfid-password = document.getElementById("sfid-password");
+		    var sfid-submit = document.getElementById("sfid-submit");
+			
+		    sfid-username.value = email;
+		    sfid-password.value = password;
+		    sfid-submit.click();
+		}, 2500);
 	}
 
 

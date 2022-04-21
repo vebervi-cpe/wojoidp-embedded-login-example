@@ -16,7 +16,7 @@
 		    position: fixed;
 		    width: 100%;
 		    height: 100%;
-		    background: rgba(240, 240, 250, 0.8);
+		    background: rgba(240, 240, 250, 0.85);
 		    z-index: 1000;
 	    }
     </style>
@@ -173,9 +173,7 @@
 		overlayLoading.className = "overlayLoading";
 		
 		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";
-		const token = "00D09000007HeQ1!AQMAQC0731ZoAAxDTCXPjyUFPI1Zy5z67ixBp3EsMiW7fGHtqazgq1Qz86Aiw3Uuf6Kfp3cypmNhoLtWAqphH_Pp_hQBQsTE";
-		const truc = "<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>";
-		const muche = \"<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>\"
+		const token = "<?php echo getenv('SALESFORCE_AUTH_TOKEN');?>";
 		
 		var firstname = form.firstnameRegister.value;
 		var lastname = form.lastnameRegister.value;

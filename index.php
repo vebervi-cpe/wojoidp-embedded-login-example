@@ -153,8 +153,6 @@
 	<script>
 		
 	function handleRegister(form) {
-		form.preventDefault();
-		
 		console.log("handleRegister");
 		
 		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";
@@ -191,7 +189,7 @@
 		    sfidUsername.value = email;
 		    sfidPassword.value = password;
 		    sfidSubmit.click();
-		}, 2500);
+		}, 3500);
 	}
 
 

@@ -44,7 +44,7 @@
     <div id="customRegister" style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center; padding: 20px;">
 	  <span style="font-weight: bold";>Custom Register</span>
 	  <br>
-	  <form onsubmit="handleRegister(this); return false;">
+	  <form onsubmit="handleRegister(this); return false;" method="post">
 		  <br><br>
 		  <label>Firstname</label>
 		  <br><br>
@@ -184,34 +184,48 @@
 		console.log(lastname);
 		console.log(email);
 		console.log(password);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", endpoint, true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.setRequestHeader('Authorization', 'Bearer ' + token);
 		
-		try {
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", endpoint, true);
-			xhr.setRequestHeader('Content-Type', 'application/json');
-			xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-			xhr.send(JSON.stringify({
-			    request: {
-				    lastname: lastname,
-				    firstname: firstname,
-				    email: email,
-				    password: password
-			    }
-			}));
+		xhr.onreadystatechange = function() {
+		    console.log(xhr);
+	            if(xhr.readyState === 4) {
+	                if(xhr.status === 200) {
+			    console.log('User successfully inserted.');
+				
+			    // Simule le remplissage du formulaire d'authentification ainsi que la soumission du formulaire/
+			    setTimeout(() => { 
+			        var sfidUsername = document.getElementById("sfid-username");
+			        var sfidPassword = document.getElementById("sfid-password");
+			        var sfidSubmit = document.getElementById("sfid-submit");
 
-			setTimeout(() => { 
-			    var sfidUsername = document.getElementById("sfid-username");
-			    var sfidPassword = document.getElementById("sfid-password");
-			    var sfidSubmit = document.getElementById("sfid-submit");
-
-			    sfidUsername.value = email;
-			    sfidPassword.value = password;
-			    sfidSubmit.click();
-			}, 3500);
-		} catch(error) {
-		    	console.error(error);
-		    	overlayLoading.className = "displayNone";
-		}
+			        sfidUsername.value = email;
+			        sfidPassword.value = password;
+			        sfidSubmit.click();
+			    }, 3500);
+				
+			} else {
+			    overlayLoading.className = "displayNone";
+				
+			    console.error('An error happened.');
+			    console.error(xhr);
+		            console.error(xhr.response);
+                            console.error(xhr.responseText);
+			}
+	            }
+	        }
+		
+		xhr.send(JSON.stringify({
+		    request: {
+			    lastname: lastname,
+			    firstname: firstname,
+			    email: email,
+			    password: password
+		    }
+		}));
 	}
 
 

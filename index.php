@@ -27,18 +27,29 @@
   </head>
   
   <body>
-    <div style="position: absolute; top: 20px; left: 20px;">
-	  <h3>Custom Register</h3>
+    <div style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center;">
+	  <span style="font-weight: bold";>Custom Register</span>
+	  <br>
 	  <form onsubmit="handleRegister(this); return false;">
+		  <br>
 		  <label>Firstname</label>
+		  <br>
 		  <input type="text" name="firstnameRegister"/>
+		  <br>
 		  <label>Lastname</label>
+		  <br>
 		  <input type="text" name="lastnameRegister"/>
+		  <br>
 		  <label>Email</label>
+		  <br>
 		  <input type="text" name="emailRegister"/>
+		  <br>
 		  <label>Password</label>
+		  <br>
 		  <input type="text" name="passwordRegister"/>
+		  <br>
 		  <input type="submit" value"Register"/>
+		  <br>
 	  </form>
     </div>
     <div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
@@ -142,6 +153,8 @@
 	<script>
 		
 	function handleRegister(form) {
+		form.preventDefault();
+		
 		console.log("handleRegister");
 		
 		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";

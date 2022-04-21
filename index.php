@@ -9,6 +9,10 @@
     <link href="reset.css" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600" type="text/css" rel="stylesheet">
     <link href="main.css" rel="stylesheet">
+
+    <style>
+	    .displayNone { display: none; }
+    </style>
 	
     <meta name="salesforce-community" content="https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>">
     <meta name="salesforce-client-id" content="<?php echo getenv('SALESFORCE_CLIENT_ID');?>">
@@ -27,7 +31,7 @@
   </head>
   
   <body>
-    <div style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center;">
+    <div id="customRegister" style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center;">
 	  <span style="font-weight: bold";>Custom Register</span>
 	  <br>
 	  <form onsubmit="handleRegister(this); return false;">
@@ -195,6 +199,9 @@
 
 	function onLogin(identity) {
 		
+		var customRegister = document.getElementById("customRegister");
+		customRegister.className = "displayNone";
+		
 		var targetDiv = document.querySelector(SFIDWidget.config.target);	
 		
 		var avatar = document.createElement('a'); 
@@ -293,6 +300,9 @@
 	
 	function onLogout() {
 		SFIDWidget.init();
+		
+		var customRegister = document.getElementById("customRegister");
+		customRegister.className = "";
 		
 		var aero = document.getElementById("aero_link");
 		aero.href = "#";

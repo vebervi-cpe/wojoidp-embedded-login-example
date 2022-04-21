@@ -173,7 +173,7 @@
 		var overlayLoading = document.getElementById("overlayLoading");
 		overlayLoading.className = "overlayLoading";
 		
-		var registrationError = document.getElementById("overlayLoading");
+		var registrationError = document.getElementById("registrationError");
 		registrationError.textContent = "";
 		
 		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";
@@ -212,13 +212,11 @@
 			    }, 3500);
 				
 			} else {
-			    overlayLoading.className = "displayNone";
-				
 			    console.error('An error happened.');
-			    console.log(xhr.status);
-			    console.log(xhr);
-		            console.log(xhr.response);
-                            console.log(xhr.responseText);
+			    console.error(xhr.status + ': ' + xhr.statusText);
+                            console.error(xhr.responseText);
+				
+			    overlayLoading.className = "displayNone";
 			    registrationError.textContent = xhr.responseText;
 			}
 	            }

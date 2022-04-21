@@ -145,7 +145,7 @@
 		console.log("handleRegister");
 		
 		const endpoint = "https://decision-dev-ed.my.salesforce.com/services/apexrest/RestControllerUserIDP";
-		const token = "00D09000007HeQ1!AQMAQFXtLaS.pCMc8G87vAiJ68ux4MFDafFnW8batu6mfHuTxFQ.63ewVCAe9ozgIS4SG1xtXBIlNe7Hm0Q8SbGin7yniqCa";
+		const token = "00D09000007HeQ1!AQMAQC0731ZoAAxDTCXPjyUFPI1Zy5z67ixBp3EsMiW7fGHtqazgq1Qz86Aiw3Uuf6Kfp3cypmNhoLtWAqphH_Pp_hQBQsTE";
 		
 		var firstname = form.firstnameRegister.value;
 		var lastname = form.lastnameRegister.value;

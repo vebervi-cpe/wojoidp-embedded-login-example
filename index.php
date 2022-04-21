@@ -23,7 +23,8 @@
 		    display: block;
     		    margin-left: auto;
 		    margin-right: auto;
-		    width: 50%;
+		    width: 250px;
+    		    background: radial-gradient(black 0%, transparent 70%);
 	    }
     </style>
 	

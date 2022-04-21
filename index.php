@@ -40,6 +40,7 @@
   <body>
     <div id="overlayLoading" class="displayNone">
 	    <h1 style="font-weight: bold;">Loading</h1>
+	    <img src="images/loading.gif">
     </div>
     <div id="customRegister" style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center; padding: 20px;">
 	  <span style="font-weight: bold";>Custom Register</span>

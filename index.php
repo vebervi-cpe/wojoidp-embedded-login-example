@@ -31,29 +31,29 @@
   </head>
   
   <body>
-    <div id="customRegister" style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center;">
+    <div id="customRegister" style="position: absolute; top: 20px; left: 20px; width: 25%; background: rgba(200, 200, 200, 0.5); text-align: center; padding: 20px;">
 	  <span style="font-weight: bold";>Custom Register</span>
 	  <br>
 	  <form onsubmit="handleRegister(this); return false;">
-		  <br>
+		  <br><br>
 		  <label>Firstname</label>
-		  <br>
+		  <br><br>
 		  <input type="text" name="firstnameRegister"/>
-		  <br>
+		  <br><br>
 		  <label>Lastname</label>
-		  <br>
+		  <br><br>
 		  <input type="text" name="lastnameRegister"/>
-		  <br>
+		  <br><br>
 		  <label>Email</label>
-		  <br>
+		  <br><br>
 		  <input type="text" name="emailRegister"/>
-		  <br>
+		  <br><br>
 		  <label>Password</label>
-		  <br>
+		  <br><br>
 		  <input type="text" name="passwordRegister"/>
-		  <br>
+		  <br><br>
 		  <input type="submit" value"Register"/>
-		  <br>
+		  <br><br>
 	  </form>
     </div>
     <div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>

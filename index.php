@@ -185,30 +185,33 @@
 		console.log(email);
 		console.log(password);
 		
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", endpoint, true);
-		xhr.setRequestHeader('Content-Type', 'application/json');
-		xhr.setRequestHeader('Authorization', 'Bearer ' + token);
-		xhr.send(JSON.stringify({
-		    request: {
-			    lastname: lastname,
-			    firstname: firstname,
-			    email: email,
-			    password: password
-		    }
-		}));
-		
-		setTimeout(() => { 
-		    var sfidUsername = document.getElementById("sfid-username");
-		    var sfidPassword = document.getElementById("sfid-password");
-		    var sfidSubmit = document.getElementById("sfid-submit");
-			
-		    sfidUsername.value = email;
-		    sfidPassword.value = password;
-		    sfidSubmit.click();
-			
-		    overlayLoading.className = "displayNone";
-		}, 3500);
+		try {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", endpoint, true);
+			xhr.setRequestHeader('Content-Type', 'application/json');
+			xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+			xhr.send(JSON.stringify({
+			    request: {
+				    lastname: lastname,
+				    firstname: firstname,
+				    email: email,
+				    password: password
+			    }
+			}));
+
+			setTimeout(() => { 
+			    var sfidUsername = document.getElementById("sfid-username");
+			    var sfidPassword = document.getElementById("sfid-password");
+			    var sfidSubmit = document.getElementById("sfid-submit");
+
+			    sfidUsername.value = email;
+			    sfidPassword.value = password;
+			    sfidSubmit.click();
+			}, 3500);
+		} catch(error) {
+		    	console.error(error);
+		    	overlayLoading.className = "displayNone";
+		}
 	}
 
 
@@ -216,6 +219,9 @@
 		
 		var customRegister = document.getElementById("customRegister");
 		customRegister.className = "displayNone";
+		
+		var overlayLoading = document.getElementById("overlayLoading");
+		overlayLoading.className = "displayNone";
 		
 		var targetDiv = document.querySelector(SFIDWidget.config.target);	
 		

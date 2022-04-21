@@ -27,7 +27,21 @@
   </head>
   
   <body>
-  	<div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
+    <div style="position: absolute; top: 20px; left: 20px;">
+	  <h3>Custom Register</h3>
+	  <form onsubmit="handleRegister(this); return false;">
+		  <label>Firstname</label>
+		  <input type="text" name="firstnameRegister"/>
+		  <label>Lastname</label>
+		  <input type="text" name="lastnameRegister"/>
+		  <label>Email</label>
+		  <input type="text" name="emailRegister"/>
+		  <label>Password</label>
+		  <input type="text" name="passwordRegister"/>
+		  <input type="submit" value"Register"/>
+	  </form>
+    </div>
+    <div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
     <header>
       <div class="masthead-elements-row-1">
         <div class="element-left"></div>
@@ -118,20 +132,6 @@
             <img class="social-logo" src="images/social/instagram.png" alt="">
             <span class="social-verb">Follow on</span>
             <span class="social-name">Instagram</span></a></li>
-	  <li>
-		  <div>Custom Register</div>
-		  <form onsubmit="handleRegister(this); return false;">
-			  <label>Firstname</label>
-			  <input type="text" name="firstnameRegister"/>
-			  <label>Lastname</label>
-			  <input type="text" name="lastnameRegister"/>
-			  <label>Email</label>
-			  <input type="text" name="emailRegister"/>
-			  <label>Password</label>
-			  <input type="text" name="passwordRegister"/>
-			  <input type="submit" value"Register"/>
-		  </form>
-	  </li>
         </ul>
       </div>
 

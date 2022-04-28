@@ -70,7 +70,7 @@
 		  <br><br>
 		  <input type="text" name="passwordRegister"/>
 		  <br><br>
-		  <input type="submit" value"Register"/>
+		  <input type="submit" value="Register"/>
 		  <br><br>
 		  <span id="registrationError" style="color: red; font-weight: bold;"></span>
 	  </form>

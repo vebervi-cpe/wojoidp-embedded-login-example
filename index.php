@@ -238,8 +238,10 @@
 					}
 				}
 				    
+				   // /services/oauth2/authorize?response_type=token&client_id=3MVG9SOw8KERNN09PRbxcQXSU8sP0XUQwqFhCEPXfu.jDd507D8ntaakmX7J.WDIZZ4F2_UV6aEdbjcz0qiib&redirect_uri=https%3A%2F%2Fwojoidp.herokuapp.com%2F_callback.php&state=https%3A%2F%2Fwojoidp.herokuapp.com%2F
+				    
 				xhrLogin.send("username=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password) + 
-					      "&startURL=" + encodeURIComponent("/services/oauth2/authorize?response_type=token&client_id=3MVG9SOw8KERNN09PRbxcQXSU8sP0XUQwqFhCEPXfu.jDd507D8ntaakmX7J.WDIZZ4F2_UV6aEdbjcz0qiib&redirect_uri=https%3A%2F%2Fwojoidp.herokuapp.com%2F_callback.php&state=https%3A%2F%2Fwojoidp.herokuapp.com%2F") +
+					      "&startURL=" + encodeURIComponent("/services/oauth2/authorize?response_type=token&client_id=<?php echo getenv('SALESFORCE_CLIENT_ID');?>&redirect_uri=https://<?php echo getenv('SALESFORCE_HEROKUAPP_URL');?>/_callback.php&state=https://<?php echo getenv('SALESFORCE_HEROKUAPP_URL');?>/") +
 					      "&mode=" + encodeURIComponent("<?php echo getenv('SALESFORCE_MODE');?>") +
 					      "&maskRedirects=" + encodeURIComponent("<?php echo getenv('SALESFORCE_MASK_REDIRECTS');?>"))				    
 			    }, 3500);

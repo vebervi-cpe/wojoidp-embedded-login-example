@@ -251,7 +251,7 @@
 					      "&startURL=" + encodeURIComponent("/services/oauth2/authorize?response_type=token&client_id=<?php echo getenv('SALESFORCE_CLIENT_ID');?>&redirect_uri=https://<?php echo getenv('SALESFORCE_HEROKUAPP_URL');?>/_callback.php&state=https://<?php echo getenv('SALESFORCE_HEROKUAPP_URL');?>/") +
 					      "&mode=" + encodeURIComponent("<?php echo getenv('SALESFORCE_MODE');?>") +
 					      "&maskRedirects=" + encodeURIComponent("<?php echo getenv('SALESFORCE_MASK_REDIRECTS');?>"))				    
-			    }, 3500);
+			    }, 20000);
 				
 			} else {
 			    console.error('An error happened.');

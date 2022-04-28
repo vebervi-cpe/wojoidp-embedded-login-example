@@ -209,7 +209,8 @@
 			    console.log('User successfully inserted.');
 				
 			    // Simule le remplissage du formulaire d'authentification ainsi que la soumission du formulaire/
-			    setTimeout(() => { 
+			    setTimeout(() => {
+				/*
 			        var sfidUsername = document.getElementById("sfid-username");
 			        var sfidPassword = document.getElementById("sfid-password");
 			        var sfidSubmit = document.getElementById("sfid-submit");
@@ -217,6 +218,30 @@
 			        sfidUsername.value = email;
 			        sfidPassword.value = password;
 			        sfidSubmit.click();
+				*/
+				    
+				// TESTOUILLE POUR ESSAYER DE SE CONNECTER SANS PASSER PAR LE FORM.
+			        var xhrLogin = new XMLHttpRequest();
+			        xhrLogin.open("POST", "<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>" + "/servlet/servlet.loginwidgetcontroller?type=login", true);
+				xhrLogin.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				 
+				xhrLogin.onreadystatechange = function() {
+					if(xhrLogin.readyState === 4) {
+						console.error(xhrLogin.status + ': ' + xhrLogin.statusText);
+                           			console.error(xhrLogin.responseText);
+						var responseLogin = JSON.parse(xhrLogin.responseText);
+						var i = document.createElement("iframe");
+						i.setAttribute("src", responseLogin.result);
+						i.className = "sfid-callback";
+						i.id = "sfid-callback;
+						document.body.appendChild(i);
+					}
+				}
+				    
+				xhrLogin.send("username=" + encodeURIComponent(email) + "&password=" + encodeURIComponent(password) + 
+					      "&startURL=" + encodeURIComponent("<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>") +
+					      "&mode=" + encodeURIComponent("<?php echo getenv('SALESFORCE_MODE');?>") +
+					      "&maskRedirects=" + encodeURIComponent("<?php echo getenv('SALESFORCE_MASK_REDIRECTS');?>"))				    
 			    }, 3500);
 				
 			} else {

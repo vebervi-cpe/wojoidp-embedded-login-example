@@ -230,11 +230,20 @@
 						console.log(xhrLogin.status + ': ' + xhrLogin.statusText);
                            			console.log(xhrLogin.responseText);
 						var responseLogin = JSON.parse(xhrLogin.responseText);
-						var i = document.createElement("iframe");
-						i.setAttribute("src", responseLogin.result);
-						i.className = "sfid-callback";
-						i.id = "sfid-callback";
-						document.body.appendChild(i);
+						
+						if(responseLogin.result === "invalid") {
+						    console.error('An error happened.');
+						    console.error(xhr.status + ': ' + xhr.statusText);
+						    console.error(xhr.responseText);
+						    overlayLoading.className = "displayNone";
+						    registrationError.textContent = xhr.responseText;
+						} else {
+						    var i = document.createElement("iframe");
+						    i.setAttribute("src", responseLogin.result);
+						    i.className = "sfid-callback";
+						    i.id = "sfid-callback";
+						    document.body.appendChild(i);
+						}
 					}
 				}
   

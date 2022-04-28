@@ -222,7 +222,7 @@
 				    
 				// TESTOUILLE POUR ESSAYER DE SE CONNECTER SANS PASSER PAR LE FORM.
 			        var xhrLogin = new XMLHttpRequest();
-			        xhrLogin.open("POST", "<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>" + "/servlet/servlet.loginwidgetcontroller?type=login", true);
+			        xhrLogin.open("POST", "https://<?php echo getenv('SALESFORCE_COMMUNITY_URL');?>/servlet/servlet.loginwidgetcontroller?type=login", true);
 				xhrLogin.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				 
 				xhrLogin.onreadystatechange = function() {
@@ -233,7 +233,7 @@
 						var i = document.createElement("iframe");
 						i.setAttribute("src", responseLogin.result);
 						i.className = "sfid-callback";
-						i.id = "sfid-callback;
+						i.id = "sfid-callback";
 						document.body.appendChild(i);
 					}
 				}
